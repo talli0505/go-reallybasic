@@ -4,8 +4,12 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/talli0505/learngo/banking"
 )
 
+// owner , balance 첫 글자 대문자 아니면 private으로 인식
 func main() {
-	fmt.Println("Hello World")
+	account := banking.Account{Owner: "James", Balance: 1000}
+	fmt.Println(account)
 }
