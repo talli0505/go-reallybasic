@@ -10,6 +10,8 @@ import (
 
 // owner , balance 첫 글자 대문자 아니면 private으로 인식
 func main() {
-	account := banking.Account{Owner: "James", Balance: 1000}
+	// account := banking.Account{Owner: "James", Balance: 1000}
+	// fmt.Println(account)
+	account := banking.NewAccount("James")
 	fmt.Println(account)
 }
