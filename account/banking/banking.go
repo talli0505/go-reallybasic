@@ -11,6 +11,8 @@ type Account struct {
 	balance int
 }
 
+var errNoMoney = errors.New("Can't withdraw")
+
 // NewAccount creates Account
 // *Account는 Account를 보고있다는 뜻
 func NewAccount(owner string) *Account {
@@ -39,7 +41,7 @@ func (a Account) Balance() int {
 // go는 try catch가 없기 때문에 직접 error 넣어줘야함
 func (a *Account) Withdraw(amount int) error {
 	if a.balance < amount {
-		return errors.New("Can't withdraw you are poor")
+		return errNoMoney
 	}
 	a.balance -= amount
 	return nil
