@@ -28,7 +28,6 @@ func NewAccount(owner string) *Account {
 // 근데 a Acoount로 하면 값을 복사해오기때문에 main에서 값을 넣어도 인식 못함 -> a *Account로 바꿈
 // a *Account로 바꾸면 recevier나 account를 복사하지말고 실제 receiver를 달라고 하는것 ( pointer receiver )
 func (a *Account) Deposit(amount int) {
-	fmt.Println("Gonna deposit", amount)
 	a.balance += amount
 }
 
@@ -45,4 +44,19 @@ func (a *Account) Withdraw(amount int) error {
 	}
 	a.balance -= amount
 	return nil
+}
+
+// ChangeOwner of the account
+func (a *Account) ChangeOwner(newOwner string) {
+	a.owner = newOwner
+}
+
+// Owner of the account
+// 값을 변경하는게 아니기에 참조값을 안해도됨
+func (a Account) Owner() string {
+	return a.owner
+}
+
+func (a Account) String() string {
+	return fmt.Sprint(a.Owner(), "'s account.\nHas: ", a.Balance())
 }

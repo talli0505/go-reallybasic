@@ -14,12 +14,11 @@ func main() {
 	// fmt.Println(account)
 	account := accounts.NewAccount("James")
 	account.Deposit(10)
-	fmt.Println(account.Balance())
 	err := account.Withdraw(20)
 	if err != nil {
 		// 프로그램 종료를 시킴
 		// log.Fatalln(err)
 		fmt.Println(err)
 	}
-	fmt.Println(account.Balance())
+	fmt.Println(account.Balance(), account.Owner())
 }
