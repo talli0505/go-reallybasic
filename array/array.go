@@ -1,3 +1,4 @@
+// 배열
 package main
 
 import "fmt"
